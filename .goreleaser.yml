@@ -14,4 +14,4 @@ release:
   mode: "append"
 
 changelog:
-  skip: true
+  disable: true

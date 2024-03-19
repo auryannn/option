@@ -33,6 +33,7 @@ jobs:
         uses: "actions/setup-go@v5"
         with:
           go-version: 'stable'
+          
 
       - name: "👷 Run the full CI pipeline"
         run: "make ci"
