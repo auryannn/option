@@ -4,13 +4,13 @@ import (
 	"fmt"
 )
 
-type Config struct {
+type config struct {
 	host string
 	port uint
 }
 
-func New(opts ...Option[Config]) *Config {
-	config := Config{}
+func new(opts ...Option[config]) *config {
+	config := config{}
 
 	if opts != nil {
 		Apply(&config, opts...)
@@ -19,33 +19,33 @@ func New(opts ...Option[Config]) *Config {
 	return &config
 }
 
-func WithHost(server string) Option[Config] {
-	return func(cfg *Config) error {
+func withHost(server string) Option[config] {
+	return func(cfg *config) error {
 		cfg.host = server
 		return nil
 	}
 }
 
-func WithPort(port uint) Option[Config] {
-	return func(cfg *Config) error {
+func withPort(port uint) Option[config] {
+	return func(cfg *config) error {
 		cfg.port = port
 		return nil
 	}
 }
 
 func ExampleApply() {
-	cfg := New()
-	Apply(cfg, WithHost("localhost"))
+	cfg := new()
+	Apply(cfg, withHost("localhost"))
 	fmt.Println(cfg.host)
 	// Output: localhost
 }
 
 func ExampleGroup() {
 	grp := Group(
-		WithHost("localhost"),
-		WithPort(8000),
+		withHost("localhost"),
+		withPort(8000),
 	)
-	cfg := New(grp)
+	cfg := new(grp)
 	fmt.Println(cfg.host, cfg.port)
 	// Output: localhost 8000
 }
