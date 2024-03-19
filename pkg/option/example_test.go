@@ -35,7 +35,7 @@ func withPort(port uint) Option[config] {
 
 func ExampleApply() {
 	cfg := new()
-	Apply(cfg, withHost("localhost"))
+	_ = Apply(cfg, withHost("localhost"))
 	fmt.Println(cfg.host)
 	// Output: localhost
 }
