@@ -9,7 +9,7 @@ type config struct {
 	port uint
 }
 
-func new(opts ...Option[config]) *config {
+func newConfig(opts ...Option[config]) *config {
 	config := config{}
 
 	if err := Apply(&config, opts...); err != nil {
@@ -34,7 +34,7 @@ func withPort(port uint) Option[config] {
 }
 
 func ExampleApply() {
-	cfg := new()
+	cfg := newConfig()
 	_ = Apply(cfg, withHost("localhost"))
 	fmt.Println(cfg.host)
 	// Output: localhost
@@ -45,7 +45,7 @@ func ExampleGroup() {
 		withHost("localhost"),
 		withPort(8000),
 	)
-	cfg := new(grp)
+	cfg := newConfig(grp)
 	fmt.Println(cfg.host, cfg.port)
 	// Output: localhost 8000
 }
