@@ -44,7 +44,7 @@ jobs:
           path: "coverage.*"
 
       - name: "🚀 Release"
-        run: "goreleaser release --rm-dist --snapshot"
+        run: "goreleaser release --clean --snapshot"
         if: "${{ runner.os == 'Linux' }}"
 
       - name: "📦 Upload dist"
