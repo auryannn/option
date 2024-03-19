@@ -13,10 +13,10 @@
 //   - https://sagikazarmark.hu/blog/functional-options-on-steroids/
 package option
 
-// Option represents a configuration option for a type `T`. It's a function
-// that modifies `T` in some way and returns an error if the modification fails.
-// This allows options to perform validation or conditional application based on
-// the state of `T` or other criteria.
+// Option represents a configuration option for a type `T`. It's a function that
+// modifies `T` in some way and returns an error if the modification fails. This
+// allows options to perform validation or conditional application based on the
+// state of `T` or other criteria.
 type Option[T any] func(v *T) error
 
 // Apply applies a series of options to a given instance of type `T`. It
@@ -39,6 +39,6 @@ func Apply[T any](v *T, opts ...Option[T]) error {
 // option fails.
 func Group[T any](opts ...Option[T]) Option[T] {
 	return func(v *T) error {
-		return Apply(v, opts...) // Leverage Exec to apply all grouped options.
+		return Apply(v, opts...)
 	}
 }
