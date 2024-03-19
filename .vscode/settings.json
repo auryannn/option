@@ -1,5 +1,30 @@
 {
-  "go.testFlags": [
-    "-v"
-  ]
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+  },
+  // gopls
+  "go.useLanguageServer": true,
+  "gopls": {
+    "formatting.local": "github.com/auryannn/go-option",
+    "formatting.gofumpt": true
+  },
+  // golangci-lint
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+    "--fast"
+  ],
+  "[go][go.mod]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  }
 }

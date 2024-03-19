@@ -1,4 +1,4 @@
-// option provides a flexible and expressive framework for configuring objects
+// Package option provides a flexible and expressive framework for configuring objects
 // in Go using the functional options pattern. This pattern offers an intuitive
 // way to customize objects with clear, readable code. It's particularly useful
 // for APIs or libraries where the number of configuration parameters might

@@ -10,13 +10,13 @@ type config struct {
 }
 
 func newConfig(opts ...Option[config]) *config {
-	config := config{}
+	config := &config{}
 
-	if err := Apply(&config, opts...); err != nil {
+	if err := Apply(config, opts...); err != nil {
 		panic(err)
 	}
 
-	return &config
+	return config
 }
 
 func withHost(server string) Option[config] {

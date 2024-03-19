@@ -27,7 +27,7 @@ func withText(text string) Option[testStruct] {
 }
 
 func failingOption() Option[testStruct] {
-	return func(ts *testStruct) error {
+	return func(_ *testStruct) error {
 		return errTest
 	}
 }

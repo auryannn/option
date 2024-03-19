@@ -1,0 +1,45 @@
+name: "Release"
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  goreleaser:
+    permissions:
+      contents: "write"
+      packages: "write"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "⤵️ Checkout repository"
+        uses: "actions/checkout@v4.1.1"
+        with:
+          fetch-depth: 0
+
+      - name: "🔧 Setup Go"
+        uses: "actions/setup-go@v5"
+        with:
+          go-version: 'stable'
+
+      - name: "🔨 Build"
+        run: "make inst"
+
+      - name: "🔐 Login to GitHub Container Registry"
+        uses: "docker/login-action@v3.1.0"
+        with:
+          registry: "ghcr.io"
+          username: "${{ github.actor }}"
+          password: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: "🚀 Release"
+        run: "goreleaser release"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: "📦 Upload dist"
+        uses: "actions/upload-artifact@v4.1.0"
+        with:
+          name: "dist"
+          path: "dist"

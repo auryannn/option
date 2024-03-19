@@ -1,66 +1,63 @@
-name: "Go"
+name: "CI"
 
 on:
   push:
     branches:
       - "main"
+
   pull_request:
     branches:
-      - "main"
+    - "main"
+
+  workflow_dispatch:
 
 jobs:
-  golangci:
-    name: "Lint"
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: "🔧 Setup Go"
-        uses: "actions/setup-go@v5"
-        with:
-          go-version: '>=1.22.1'
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - "ubuntu-latest"
+          - "macos-latest"
+          - "windows-latest"
 
+    runs-on: "${{ matrix.os }}"
+    defaults:
+      run:
+        shell: "bash"
+    steps:
       - name: "⤵️ Checkout repository"
         uses: "actions/checkout@v4.1.1"
 
-      - name: "🎨 Lint Go code"
-        uses: "golangci/golangci-lint-action@v4"
-
-  test:
-    name: "Test"
-    runs-on: "ubuntu-latest"
-    steps:
       - name: "🔧 Setup Go"
         uses: "actions/setup-go@v5"
         with:
-          go-version: '>=1.22.1'
+          go-version: 'stable'
 
-      - name: "⤵️ Checkout repository"
-        uses: "actions/checkout@v4.1.1"
+      - name: "👷 Run the full CI pipeline"
+        run: "make ci"
 
-      - name: "🧪 Run unit tests"
-        run: "go test -cover -race -coverprofile=coverage.out -covermode=atomic ./..."
+      - name: "📊 Upload coverage reports"
+        uses: "actions/upload-artifact@v4.3.1"
+        with:
+          name: "coverage-${{ matrix.os }}"
+          path: "coverage.*"
+
+      - name: "🚀 Release"
+        run: "goreleaser release --rm-dist --snapshot"
+        if: "${{ runner.os == 'Linux' }}"
+
+      - name: "📦 Upload dist"
+        uses: "actions/upload-artifact@v4.3.1"
+        with:
+          name: "dist-${{ matrix.os }}"
+          path: "dist"
 
       - name: "☂️ Upload coverage reports to Codecov"
         uses: "codecov/codecov-action@v4.1.0"
         with:
-          token: "${{ secrets.CODECOV_TOKEN }}"
           verbose: true
+          fail_ci_if_error: true
+          file: "./coverage.out"
           slug: "auryannn/go-option"
-
-  build:
-    name: "Build"
-    runs-on: "ubuntu-latest"
-    needs:
-      - "golangci"
-      - "test"
-
-    steps:
-      - name: "🔧 Setup Go"
-        uses: "actions/setup-go@v5"
-        with:
-          go-version: '>=1.22.1'
-
-      - name: "⤵️ Checkout repository"
-        uses: "actions/checkout@v4.1.1"
-
-      - name: "🏗️ Build"
-        run: "go build -v ./..."
+          token: "${{ secrets.CODECOV_TOKEN }}"

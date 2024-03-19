@@ -1,0 +1,32 @@
+before:
+  hooks:
+    - "go mod download"
+
+builds:
+  - skip: true
+
+dockers:
+  - image_templates:
+    - "ghcr.io/auryannn/go-option:latest"
+    - "ghcr.io/auryannn/go-option:{{ .Major }}"
+    - "ghcr.io/auryannn/go-option:{{ .Major }}.{{ .Minor }}"
+    - "ghcr.io/auryannn/go-option:{{ .Major }}.{{ .Minor }}.{{ .Patch }}"
+
+    build_flag_templates:
+      - "--pull"
+      # OCI annotations: https://github.com/opencontainers/image-spec/blob/main/annotations.md
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.name={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+      - "--label=org.opencontainers.image.source={{.GitURL}}"
+release:
+  github:
+    name: "go-option"
+    owner: "auryannn"
+  name_template: "{{.Version}}"
+  prerelease: "auto"
+  mode: "append"
+
+changelog:
+  skip: true
