@@ -27,12 +27,12 @@ jobs:
       - name: "🔨 Build"
         run: "make inst"
 
-      - name: "🔐 Login to GitHub Container Registry"
-        uses: "docker/login-action@v3.1.0"
-        with:
-          registry: "ghcr.io"
-          username: "${{ github.actor }}"
-          password: "${{ secrets.GITHUB_TOKEN }}"
+      # - name: "🔐 Login to GitHub Container Registry"
+      #   uses: "docker/login-action@v3.1.0"
+      #   with:
+      #     registry: "ghcr.io"
+      #     username: "${{ github.actor }}"
+      #     password: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: "🚀 Release"
         run: "goreleaser release"
