@@ -1,4 +1,4 @@
-// `option` provides a flexible and expressive framework for configuring objects
+// option provides a flexible and expressive framework for configuring objects
 // in Go using the functional options pattern. This pattern offers an intuitive
 // way to customize objects with clear, readable code. It's particularly useful
 // for APIs or libraries where the number of configuration parameters might
@@ -13,13 +13,13 @@
 //   - https://sagikazarmark.hu/blog/functional-options-on-steroids/
 package option
 
-// `Option` represents a configuration option for a type `T`. It's a function
+// Option represents a configuration option for a type `T`. It's a function
 // that modifies `T` in some way and returns an error if the modification fails.
 // This allows options to perform validation or conditional application based on
 // the state of `T` or other criteria.
 type Option[T any] func(v *T) error
 
-// `Apply` applies a series of options to a given instance of type `T`. It
+// Apply applies a series of options to a given instance of type `T`. It
 // iterates through each option, applying them to `T`. If any option fails
 // (indicated by returning an error), `Apply` halts and returns the encountered
 // error.
@@ -32,7 +32,7 @@ func Apply[T any](v *T, opts ...Option[T]) error {
 	return nil
 }
 
-// `Group` combines multiple options into a single, composite option. This is
+// Group combines multiple options into a single, composite option. This is
 // particularly useful for organizing and reusing sets of related options. When
 // the returned `Option[T]` is applied to an instance of `T`, it sequentially
 // applies each grouped option, stopping and returning an error if any single

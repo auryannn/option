@@ -12,8 +12,8 @@ type config struct {
 func new(opts ...Option[config]) *config {
 	config := config{}
 
-	if opts != nil {
-		Apply(&config, opts...)
+	if err := Apply(&config, opts...); err != nil {
+		panic(err)
 	}
 
 	return &config
