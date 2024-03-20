@@ -37,7 +37,7 @@ func ExampleApply() {
 	cfg := newConfig()
 	_ = Apply(cfg, withHost("localhost"))
 	fmt.Println(cfg.host)
-		// Output: localhost
+	// Output: localhost
 }
 
 func ExampleGroup() {

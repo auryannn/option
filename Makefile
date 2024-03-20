@@ -1,6 +1,10 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL := all
 
+.PHONY: help
+help: ## Display this help screen
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+
 .PHONY: all
 all: ## Build, lint, and test the project.
 all: mod tools gen build spell lint test
@@ -8,10 +12,6 @@ all: mod tools gen build spell lint test
 .PHONY: ci
 ci: ## Run the full Continuous Integration pipeline.
 ci: all diff
-
-.PHONY: help
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: clean
 clean: ## Remove build artifacts and clean project directory.
@@ -45,7 +45,7 @@ build: ## Build the project using goreleaser for the current platform.
 .PHONY: spell
 spell: ## Check and fix spelling errors in Markdown files.
 	$(call print-target)
-	misspell -error -locale=US -w **.md
+	misspell --error --locale=US --w **.md
 
 .PHONY: lint
 lint: ## Lint the project's Go code and fix issues if possible.
@@ -55,8 +55,8 @@ lint: ## Lint the project's Go code and fix issues if possible.
 .PHONY: test
 test: ## Run Go tests with race detection and coverage reporting.
 	$(call print-target)
-	go test -race -covermode=atomic -coverprofile=coverage.out -coverpkg=./... ./...
-	go tool cover -html=coverage.out -o coverage.html
+	go test --race --covermode atomic --coverprofile coverage.out --coverpkg ./... ./...
+	go tool cover --html coverage.out -o coverage.html
 
 .PHONY: diff
 diff: ## Check for uncommitted Git changes and fail if any are found.
