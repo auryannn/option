@@ -6,7 +6,7 @@
 coverage.*
 vendor/
 dist/
-go.work
+go.work*
 
 ### Linux ###
 *~

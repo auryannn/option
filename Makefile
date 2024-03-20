@@ -56,7 +56,7 @@ lint: ## Lint the project's Go code and automatically fix issues if possible.
 test: ## Run Go tests with race detection and coverage reporting.
 	$(call print-target)
 	go test -race -covermode=atomic -coverprofile=coverage.out -coverpkg=./... ./...
-	go tools cover -html=coverage.out -o coverage.html
+	go tool cover -html=coverage.out -o coverage.html
 
 .PHONY: diff
 diff: ## Check for uncommitted Git changes and fail if any are found.
@@ -65,5 +65,5 @@ diff: ## Check for uncommitted Git changes and fail if any are found.
 	RES=$$(git status --porcelain) ; if [ -n "$$RES" ]; then echo $$RES && exit 1 ; fi
 
 define print-target
-    @printf "Executing target: \033[36m$@\033[0m\n"
+    @printf "\n>>> Executing target: \033[36m$@\033[0m\n"
 endef
