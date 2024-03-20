@@ -19,7 +19,7 @@ func newConfig(opts ...Option[config]) *config {
 	return config
 }
 
-func withHost(server string) Option[config] {
+func withHos(server string) Option[config] {
 	return func(cfg *config) error {
 		cfg.host = server
 		return nil
@@ -35,14 +35,14 @@ func withPort(port uint) Option[config] {
 
 func ExampleApply() {
 	cfg := newConfig()
-	_ = Apply(cfg, withHost("localhost"))
+	_ = Apply(cfg, withHos("localhost"))
 	fmt.Println(cfg.host)
 	// Output: localhost
 }
 
 func ExampleGroup() {
 	grp := Group(
-		withHost("localhost"),
+		withHos("localhost"),
 		withPort(8000),
 	)
 	cfg := newConfig(grp)

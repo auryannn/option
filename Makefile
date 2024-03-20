@@ -48,7 +48,7 @@ spell: ## Check and fix spelling errors in Markdown files.
 	misspell -error -locale=US -w **.md
 
 .PHONY: lint
-lint: ## Lint the project's Go code and automatically fix issues if possible.
+lint: ## Lint the project's Go code and fix issues if possible.
 	$(call print-target)
 	golangci-lint run --fix
 
