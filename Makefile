@@ -1,12 +1,12 @@
 SHELL := /bin/bash
-
 .DEFAULT_GOAL := all
+
 .PHONY: all
 all: ## Build, lint, and test the project.
-all: mod inst gen build spell lint test
+all: mod tools gen build spell lint test
 
 .PHONY: ci
-ci: ## Run the full CI pipeline, including build and diff checks.
+ci: ## Run the full Continuous Integration pipeline.
 ci: all diff
 
 .PHONY: help
@@ -27,8 +27,8 @@ mod: ## Update and tidy Go module dependencies.
 	go mod tidy
 	cd tools && go mod tidy
 
-.PHONY: inst
-inst: ## Install required Go tools from the tools directory.
+.PHONY: tools
+tools: ## Install required Go tools from the tools directory.
 	$(call print-target)
 	cd tools && go install $(shell cd tools && go list -e -f '{{ join .Imports " " }}' -tags=tools)
 
@@ -56,7 +56,7 @@ lint: ## Lint the project's Go code and automatically fix issues if possible.
 test: ## Run Go tests with race detection and coverage reporting.
 	$(call print-target)
 	go test -race -covermode=atomic -coverprofile=coverage.out -coverpkg=./... ./...
-	go tool cover -html=coverage.out -o coverage.html
+	go tools cover -html=coverage.out -o coverage.html
 
 .PHONY: diff
 diff: ## Check for uncommitted Git changes and fail if any are found.

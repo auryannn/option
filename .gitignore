@@ -3,6 +3,7 @@
 *.dylib
 *.test
 *.out
+coverage.*
 vendor/
 dist/
 go.work

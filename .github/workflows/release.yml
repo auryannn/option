@@ -22,10 +22,10 @@ jobs:
       - name: "🔧 Setup Go"
         uses: "actions/setup-go@v5"
         with:
-          go-version: 'stable'
+          go-version-file: "go.mod"
 
       - name: "🔨 Build"
-        run: "make inst"
+        run: "make tools"
 
       # - name: "🔐 Login to GitHub Container Registry"
       #   uses: "docker/login-action@v3.1.0"
