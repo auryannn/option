@@ -3,14 +3,6 @@
 
 # go-option
 
-<!-- <p>
-  <img src="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&color=7e68f4">
-  &nbsp;
-  <img src="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&color=7e68f4">
-  &nbsp;
-  <img src="https://img.shields.io/badge/reference-go?style=for-the-badge&label=go&color=52a9bd">
-</p> -->
-
 <p>
   <a href="https://github.com/auryannn/go-option/releases">
     <picture>
@@ -52,11 +44,12 @@
 
 </div>
 
-## Install
+## 🔧 Install
 
 ```shell
 go get github.com/auryannn/go-option
 ```
 
-## License
+## 📄 License
 
+This project is licensed under the [MIT License](LICENSE.md).
