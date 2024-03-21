@@ -3,25 +3,28 @@
 
 # go-option
 
+<!-- <img src="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=687589&color=7363ca"> -->
+<!-- <img src="https://img.shields.io/badge/reference-go?style=for-the-badge&label=go&labelColor=687589&color=52a9bd"> -->
+
 <p>
   <a href="https://github.com/auryannn/go-option/releases">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=2d3643&color=525deb">
-      <img src="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=e4eefb&color=7363ca">
+      <img src="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=687589&color=7363ca">
     </picture>
   </a>
   &nbsp;
   <a href="go.mod">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=2d3643&color=525ceb">
-      <img src="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=e4eefb&color=7363ca">
+      <img src="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=687589&color=7363ca">
     </picture>
   </a>
   &nbsp;
   <a href="https://pkg.go.dev/mod/github.com/auryannn/go-option">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/reference-go?style=for-the-badge&label=go&labelColor=2d3643&color=007d9c">
-      <img src="https://img.shields.io/badge/reference-go?style=for-the-badge&label=go&labelColor=e4eefb&color=52a9bd">
+      <img src="https://img.shields.io/badge/reference-go?style=for-the-badge&label=go&labelColor=687589&color=52a9bd">
     </picture>
   </a>
 </p>
@@ -30,14 +33,14 @@
   <a href="https://github.com/auryannn/go-option/actions/workflows/ci.yml">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?style=for-the-badge&label=ci&labelColor=2d3643">
-      <img src="https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?style=for-the-badge&label=ci&labelColor=e4eefb">
+      <img src="https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?style=for-the-badge&label=ci&labelColor=687589">
     </picture>
   </a>
   &nbsp;
   <a href="https://codecov.io/gh/auryannn/go-option">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/codecov/c/github/auryannn/go-option?style=for-the-badge&label=coverage&labelColor=2d3643">
-      <img src="https://img.shields.io/codecov/c/github/auryannn/go-option?style=for-the-badge&label=coverage&labelColor=e4eefb">
+      <img src="https://img.shields.io/codecov/c/github/auryannn/go-option?style=for-the-badge&label=coverage&labelColor=687589">
     </picture>
   </a>
 </p>
