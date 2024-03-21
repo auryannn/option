@@ -7,7 +7,7 @@ help: ## Display this help screen
 
 .PHONY: all
 all: ## Build, lint, and test the project.
-all: mod tools gen build spell lint test
+all: mod tools spell lint test
 
 .PHONY: ci
 ci: ## Run the full Continuous Integration pipeline.
@@ -31,16 +31,6 @@ mod: ## Update and tidy Go module dependencies.
 tools: ## Install required Go tools from the tools directory.
 	$(call print-target)
 	cd tools && go install $(shell cd tools && go list -e -f '{{ join .Imports " " }}' -tags=tools)
-
-.PHONY: gen
-gen: ## Generate Go source code.
-	$(call print-target)
-	go generate ./...
-
-.PHONY: build
-build: ## Build the project using goreleaser for the current platform.
-	$(call print-target)
-	goreleaser build --clean --single-target --snapshot
 
 .PHONY: spell
 spell: ## Check and fix spelling errors in Markdown files.
