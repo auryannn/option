@@ -24,7 +24,7 @@ jobs:
         with:
           go-version-file: "go.mod"
 
-      - name: "🔨 Build"
+      - name: "🔨 Build tools"
         run: "make tools"
 
       # - name: "🔐 Login to GitHub Container Registry"
@@ -34,8 +34,10 @@ jobs:
       #     username: "${{ github.actor }}"
       #     password: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: "🚀 Release"
-        run: "goreleaser release"
+      - name: "🚀 Run GoReleaser"
+        uses: "goreleaser/goreleaser-action@v5"
+        with:
+          version: "latest"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 

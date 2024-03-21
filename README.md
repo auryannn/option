@@ -8,6 +8,13 @@
 [![][go-version-badge]][go-version-link]
 [![][go-reference-badge]][go-reference-link]
 
+
+## Install
+
+```shell
+go get github.com/auryannn/go-option
+```
+
 [ci-link]: https://github.com/auryannn/go-option/actions/workflows/ci.yml
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?&label=CI
 
