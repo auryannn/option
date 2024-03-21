@@ -25,7 +25,7 @@ jobs:
         shell: "bash"
     steps:
       - name: "⤵️ Checkout repository"
-        uses: "actions/checkout@v4.1.1"
+        uses: "actions/checkout@v4.1.2"
 
       - name: "🔧 Set up Go"
         uses: "actions/setup-go@v5"
