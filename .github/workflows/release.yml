@@ -23,6 +23,7 @@ jobs:
         uses: "actions/setup-go@v5"
         with:
           go-version-file: "go.mod"
+          cache: true
 
       - name: "🔨 Build tools"
         run: "make tools"
@@ -34,11 +35,8 @@ jobs:
       #     username: "${{ github.actor }}"
       #     password: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: "🚀 Run GoReleaser"
-        uses: "goreleaser/goreleaser-action@v5"
-        with:
-          version: "latest"
-          args: "release --clean"
+      - name: "🚀 Release"
+        run: "goreleaser release"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 

@@ -1,34 +1,48 @@
 
+<div align="center">
+
 # go-option
 
-[![][ci-badge]][ci-link]
-[![][codecov-badge]][codecov-link]
-[![][go-report-badge]][go-report-link]
-[![][github-release-badge]][github-release-link]
-[![][go-version-badge]][go-version-link]
-[![][go-reference-badge]][go-reference-link]
+<p>
+  <a href="https://github.com/auryannn/go-option/releases">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/v/release/auryannn/go-option?logo=github&label=Release&color=525ceb">
+      <img src="https://img.shields.io/github/v/release/auryannn/go-option?logo=github&label=Release&labelColor=222831&color=525ceb">
+    </picture>
+  </a>
+  <a href="go.mod">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?logo=go&logoColor=white&label=Version&color=525ceb">
+      <img src="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?logo=go&logoColor=white&label=Version&labelColor=222831&color=525ceb">
+    </picture>
+  </a>
+  <a href="https://pkg.go.dev/mod/github.com/auryannn/go-option">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Reference-go?logo=go&logoColor=white&labelColor=5d5d5d&color=525ceb">
+      <img src="https://img.shields.io/badge/Reference-go?logo=go&logoColor=white&labelColor=222831&color=525ceb">
+    </picture>
+  </a>
+</p>
 
+<p>
+  <a href="https://github.com/auryannn/go-option/actions/workflows/ci.yml">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?logo=github&label=CI">
+      <img src="https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?logo=github&label=CI&labelColor=222831">
+    </picture>
+  </a>
+  <a href="https://codecov.io/gh/auryannn/go-option">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/codecov/c/github/auryannn/go-option?logo=codecov&logoColor=white&label=Coverage">
+      <img src="https://img.shields.io/codecov/c/github/auryannn/go-option?logo=codecov&logoColor=white&label=Coverage&labelColor=222831">
+    </picture>
+  </a>
+</p>
+
+</div>
 
 ## Install
 
 ```shell
 go get github.com/auryannn/go-option
 ```
-
-[ci-link]: https://github.com/auryannn/go-option/actions/workflows/ci.yml
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/auryannn/go-option/ci.yml?&label=CI
-
-[github-release-link]: https://github.com/auryannn/go-option/releases
-[github-release-badge]: https://img.shields.io/github/v/release/auryannn/go-option
-
-[codecov-link]: https://codecov.io/gh/auryannn/go-option
-[codecov-badge]: https://img.shields.io/codecov/c/github/auryannn/go-option
-
-[go-version-link]: go.mod
-[go-version-badge]: https://img.shields.io/github/go-mod/go-version/auryannn/go-option?label=go
-
-[go-report-link]: https://goreportcard.com/report/github.com/auryannn/go-option
-[go-report-badge]: https://goreportcard.com/badge/github.com/auryannn/go-option
-
-[go-reference-link]: https://pkg.go.dev/mod/github.com/auryannn/go-option
-[go-reference-badge]: https://pkg.go.dev/badge/mod/github.com/auryannn/go-option
