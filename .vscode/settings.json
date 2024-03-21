@@ -4,12 +4,6 @@
       "source.organizeImports": "explicit"
     }
   },
-  // gopls
-  "go.useLanguageServer": true,
-  "gopls": {
-    "formatting.local": "github.com/auryannn/go-option",
-    "formatting.gofumpt": true
-  },
   // golangci-lint
   "go.lintTool": "golangci-lint",
   "go.lintFlags": [
