@@ -1,15 +1,8 @@
 {
-  "[go]": {
-    "editor.formatOnSave": true,
+  "[go][go.mod]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
-    },
-  },
-  "[go.mod]": {
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
+    }
   },
   // gopls
   "go.useLanguageServer": true,
@@ -20,11 +13,6 @@
   // golangci-lint
   "go.lintTool": "golangci-lint",
   "go.lintFlags": [
-    "--fast"
+    "--fast",
   ],
-  "[go][go.mod]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  }
 }
