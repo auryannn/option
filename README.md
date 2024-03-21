@@ -6,14 +6,14 @@
 <p>
   <a href="https://github.com/auryannn/go-option/releases">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=2d3643&color=525deb">
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=2d3643&color=5134f4">
       <img src="https://img.shields.io/github/v/release/auryannn/go-option?style=for-the-badge&label=release&labelColor=f3f8fe&color=7363ca">
     </picture>
   </a>
   &nbsp;
   <a href="go.mod">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=2d3643&color=525ceb">
+      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=2d3643&color=5134f4">
       <img src="https://img.shields.io/github/go-mod/go-version/auryannn/go-option?style=for-the-badge&label=go&labelColor=f3f8fe&color=7363ca">
     </picture>
   </a>
